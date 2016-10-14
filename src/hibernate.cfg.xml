@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- 配置连接数据库的基本信息 -->
+       <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_test</property>
+       <property name="hibernate.connection.username">root</property>
+       <property name="hibernate.connection.password">123456</property>
+       <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+ 
+       <!-- Hibernate的基本信息 -->
+       <!-- Hibernate使用的方言 -->
+       <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+ 
+       <!-- 是否在控制台打印sql -->
+       <property name="show_sql">true</property>
+ 
+       <!-- 是否格式化sql -->
+       <property name="format_sql">true</property>
+ 
+       <!-- 自动生成数据表的策略 -->
+       <!-- create:会根据.hbm.xml文件生成新的数据表，每次都会删除上一次的表，重新生成表 create-drop:会根据.hbm.xml文件生成新的数据表，但SessionFactory一关闭，表就自动删除
+           update:最常用的属性，会根据.hbm.xml文件生成新的数据表，若.hbm.xml文件和数据表中对应的数据表结构不不同，Hibernate会更新数据表结构，但不会删除已经有的列和行
+           validate:会和数据表进行比较，若.hbm.xml文件中的列在数据表中不存在，则抛出异常 -->
+       <property name="hbm2ddl.auto">update</property>
+ 
+       <!-- 指定映射的 .hbm.xml 文件 -->
+       <mapping resource="pojo/News.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
