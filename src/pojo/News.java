@@ -56,12 +56,4 @@ public class News {
 		return "News [id=" + id + ", title=" + title + ", content=" + content + ", time=" + time + "]";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-
 }
